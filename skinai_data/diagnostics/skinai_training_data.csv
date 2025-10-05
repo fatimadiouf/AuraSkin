@@ -1,0 +1,2 @@
+timestamp,age,skin_type,hyperpigmentation_ratio,hyperpigmentation_spots,acne_count,redness_ratio,diagnosis,recommended_product,image_path,needs_medical_followup
+20251004_225959_952729,37,Peau grasse,0.31640625,1,0,0.03515625,Hyperpigmentation sévère,SÉRUM INTENSIF ANTI-TACHES + CRÈME ÉCLAT NUIT,skinai_data/images/20251004_225959_952729.jpg,True
