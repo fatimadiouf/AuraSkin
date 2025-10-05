@@ -545,6 +545,14 @@ if uploaded_file and not issues:
             else:
                 client_df.to_csv(clients_path, index=False)
             
+            # Instructions de livraison basées sur l'option choisie
+            delivery_instructions = {
+                "🚗 Livraison à domicile (frais de livraison applicables)": "Notre équipe vous contactera sous 24h pour organiser la livraison",
+                "🏪 Retrait chez AuraSkin Dakar": "Présentez votre code client à notre centre AuraSkin Dakar"
+            }
+            
+            instruction = delivery_instructions[delivery_option]
+            
             # Message de confirmation
             st.markdown('<div class="success-box">', unsafe_allow_html=True)
             st.success(f"""
@@ -557,10 +565,7 @@ if uploaded_file and not issues:
             👤 **Nom :** {customer_name}
             
             **📋 PROCHAINES ÉTAPES :**
-            {
-                "🚗 Livraison à domicile (frais de livraison applicables)": "Notre équipe vous contactera sous 24h pour organiser la livraison",
-                "🏪 Retrait chez AuraSkin Dakar": "Présentez votre code client à notre centre AuraSkin Dakar"
-            }[delivery_option]
+            {instruction}
             
             **📞 Contactez-nous :**
             📱 **WhatsApp :** +221 76 484 40 51
@@ -649,7 +654,7 @@ try:
             st.metric("Engagements suivi", engagements)
         
         with col4:
-            precision = 52 + min(len(df_stats) // 10, 20)  # Augmente avec les données
+            precision = 52 + min(len(df_stats) // 10, 20)
             st.metric("Précision IA actuelle", f"{precision}%", f"+{min(len(df_stats)//10, 20)}%")
 
 except Exception as e:
