@@ -2,4 +2,7 @@ numpy
 pandas
 torch
 flask
+matplotlib
+streamlit
 opencv-python-headless
+scikit-learn
